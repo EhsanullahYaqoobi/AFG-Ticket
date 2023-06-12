@@ -1,0 +1,12 @@
+In BottomBar class we a ststefull class.
+______________________________________
+bottomNavagationBar:BottomNavagationBar->this a Widget or a class or a constructor
+BottomNavagationBar: and why we use from navagationbar becuase we want to tab between defferent places.
+item  takes a list of bottomNavagationBaritems.
+I used from a package to the name of fluentui.icons for my bottomnavagationbar.
+showSelectedLabels: false, 		  //Name is gone from label
+showUnselectedLabels: false, 		  //It means that the label is unvisiable
+selectedItemColor: Colors.blueGrey, 	  //And now it is visiable
+type: BottomNavigationBarType.fixed,      //when we tap our navagation bar dont have any move
+debugShowCheckedModeBanner: false, //For deleteing debuge flag on the right side on the up
+Gap is package that we download it and used instead of box sazing
