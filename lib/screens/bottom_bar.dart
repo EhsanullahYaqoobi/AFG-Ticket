@@ -1,4 +1,6 @@
 import 'package:afg_ticket/screens/home_screen.dart';
+import 'package:afg_ticket/screens/search_screen.dart';
+import 'package:afg_ticket/screens/ticket_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +16,8 @@ class _BottomBarState extends State<BottomBar> {
   //Acts like an Array
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    const Text("Search"),
-    const Text("Ticket"),
+    const SearchScreen(),
+    const TicketScreen(),
     const Text("Profile"),
   ];
   void _onItemTapped(int index) {

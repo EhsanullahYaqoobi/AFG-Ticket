@@ -1,8 +1,11 @@
 import 'package:afg_ticket/screens/ticket_view.dart';
+import 'package:afg_ticket/utils/app_info_list.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../utils/app_style.dart';
+import '../widgets/double_text_widget.dart';
+import 'hotel_screens.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,8 +18,9 @@ class HomeScreen extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
-                //For managening of image logo
-                horizontal: 20),
+              //For managening of image logo
+              horizontal: 20,
+            ),
             child: Column(
               children: [
                 const Gap(40),
@@ -44,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
                           fit: BoxFit.fitHeight,
-                          image: AssetImage("assets/images/Airplane.png"),
+                          image: AssetImage("assets/images/Image03.png"),
                         ),
                       ),
                     ),
@@ -71,39 +75,42 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Upcoming Flights",
-                      style: Styles.headLineStyle2,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        print("You are Tapped");
-                      },
-                      child: Text(
-                        "View all",
-                        style: Styles.textStyle
-                            .copyWith(color: Styles.primaryColor),
-                      ),
-                    ),
-                  ],
-                ),
+                const AppDoubleTextWidget(
+                  bigText: "Upcoming Flights",
+                  smallText: "View all",
+                )
               ],
             ),
           ),
           const Gap(15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [
-                const TicketView(),
-                const TicketView(),
-              ],
+              //Map Convert to the list
+              children: ticketList
+                  .map((singleTicket) => TicketView(ticket: singleTicket))
+                  .toList(),
             ),
-          )
+          ),
+          const Gap(15),
+          Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: const AppDoubleTextWidget(
+                bigText: "Hotels",
+                smallText: "View all",
+              )),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              // Take the map from app_info_list
+              children: hotelList
+                  .map((singleHotel) => HotelScreen(hotel: singleHotel))
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );

@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner:
-          false, //For deleteing debuge flag on the right side on the up
+      //For deleting debug flag on the right side on the up
+      debugShowCheckedModeBanner: false,
       title: 'AFG Ticket',
       theme: ThemeData(
         primaryColor: primary,
